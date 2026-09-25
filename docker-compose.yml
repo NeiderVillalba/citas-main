@@ -50,6 +50,11 @@ services:
 
       JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET}
       JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET}
+      JWT_REFRESH_COOKIE_SECURE: ${JWT_REFRESH_COOKIE_SECURE:-false}
+      FRONTEND_ORIGIN: ${FRONTEND_ORIGIN:-http://localhost:3000}
+      DEMO_SEED: ${DEMO_SEED:-false}
+      ADMIN_BOOTSTRAP_EMAIL: ${ADMIN_BOOTSTRAP_EMAIL:-}
+      ADMIN_BOOTSTRAP_PASSWORD: ${ADMIN_BOOTSTRAP_PASSWORD:-}
 
     ports:
       - "${API_PORT:-8080}:8080"
@@ -76,7 +81,7 @@ services:
       - node_cache:/root/.npm
 
     ports:
-      - "${REACT_PORT:-5173}:5173"
+      - "${REACT_PORT:-3000}:3000"
       - "${ANGULAR_PORT:-4200}:4200"
 
     depends_on:
